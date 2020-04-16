@@ -33,14 +33,18 @@ Then fill up our disk the the Tsugi pre-requisites:
 
     bash ami/build.sh
 
+Do not run the `tsugi-dev-startup.sh`
+
 Then come back here and add more to the kernel
 
     cd ../pg4e-docker
-
     bash ami/prepare.sh docker
 
+Then do the configuration and startup:
+
     cp ami-env-dist.sh  ami-env.sh
+    bash /usr/local/bin/tsugi-pg4e-startup.sh return
 
-
+The `pg4e-startup` script will run all the tsugi scripts in the right order.
 
 
