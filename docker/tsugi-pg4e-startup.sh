@@ -32,7 +32,7 @@ if [ -f "$COMPLETE" ]; then
     echo "Starting charles-server"
     cd /charles-server
     source .venv/bin/activate
-    python /charles-server/server --port 8001
+    python /charles-server/server --port 8001 &
 
     echo "https://certbot.eff.org/lets-encrypt/ubuntubionic-apache"
     echo " "
@@ -120,7 +120,7 @@ fi
 echo "Starting charles-server"
 cd /charles-server
 source .venv/bin/activate
-python /charles-server/server --port 8001
+python /charles-server/server --port 8001 &
 
 echo "https://certbot.eff.org/lets-encrypt/ubuntubionic-apache"
 echo " "
