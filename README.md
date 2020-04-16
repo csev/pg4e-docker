@@ -21,11 +21,11 @@ Common commands for EC2 or docker once in as `root`:
     git config user.name "Charles R. Severance"
     git config user.email "csev@umich.edu"
 
-Check out this repository and Tsugi's docker-php:
+Check out this repository and Tsugi's php-docker:
 
     cd /root
     get clone https://github.com/csev/pg4e-docker.git
-    git clone https://github.com/tsugiproject/docker-php.git
+    git clone https://github.com/tsugiproject/php-docker.git
 
 Then fill up our disk the the Tsugi pre-requisites:
 
