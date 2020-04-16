@@ -37,7 +37,11 @@ Then come back here and add more to the kernel
     bash ami/prepare.sh docker
 
 At this point if you are in an ECS and want to snapshot an AMI for an autoscaling group
-or something - do it now.  The rest is configuration and startup:
+or something - do it now.  Or perhaps take a docker snapshot to come back to this point:
+
+    docker commit d6c36062e38b tsugi:snap
+
+The rest is configuration and startup:
 
     cp ami-env-dist.sh  ami-env.sh
 
