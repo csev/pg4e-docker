@@ -54,6 +54,12 @@ The `pg4e-startup` script will run all the Tsugi scripts in the right order.
 
 The navigate to http://localhost:8080/ or http://12.34.56.78/ depending on your server.
 
+Es configuration:
+
+    es_host:  127.0.0.1  or test.pg4e.com
+    es_port:  8001
+    es_prefix: v1/basicauth/elasticsearch
+
 If you are goging to code - here is the git config:
 
     git config user.name "Charles R. Severance"
