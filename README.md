@@ -24,8 +24,8 @@ Common commands for EC2 or docker once in as `root`:
 Check out this repository and Tsugi's php-docker:
 
     cd /root
-    get clone https://github.com/csev/pg4e-docker.git
-    git clone https://github.com/tsugiproject/php-docker.git
+    git clone https://github.com/tsugiproject/docker-php.git
+    git clone https://github.com/csev/pg4e-docker.git
 
 Then fill up our disk the the Tsugi pre-requisites:
 
@@ -33,7 +33,7 @@ Then fill up our disk the the Tsugi pre-requisites:
 
     bash ami/build.sh
 
-Do not run the `tsugi-dev-startup.sh`
+Do *not* run the `tsugi-dev-startup.sh`
 
 Then come back here and add more to the kernel
 
