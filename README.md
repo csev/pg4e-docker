@@ -15,11 +15,7 @@ To test the ami scripts in a docker container so you can start over:
 Common commands for EC2 or docker once in as `root`:
 
     apt-get update
-    apt-get install -y git
-    apt-get install -y vim
-
-    git config user.name "Charles R. Severance"
-    git config user.email "csev@umich.edu"
+    apt-get install -y git vim
 
 Check out this repository and Tsugi's php-docker:
 
@@ -40,11 +36,23 @@ Then come back here and add more to the kernel
     cd ../pg4e-docker
     bash ami/prepare.sh docker
 
-Then do the configuration and startup:
+At this point if you are in an ECS and want to snapshot an AMI for an autoscaling group
+or something - do it now.  The rest is configuration and startup:
 
     cp ami-env-dist.sh  ami-env.sh
+
+Edit the config...
+
+    source ami-env.sh
     bash /usr/local/bin/tsugi-pg4e-startup.sh return
 
-The `pg4e-startup` script will run all the tsugi scripts in the right order.
+The `pg4e-startup` script will run all the Tsugi scripts in the right order.
+
+The navigate to http://localhost:8080/ or http://12.34.56.78/ depending on your server.
+
+If you are goging to code - here is the git config:
+
+    git config user.name "Charles R. Severance"
+    git config user.email "csev@umich.edu"
 
 
