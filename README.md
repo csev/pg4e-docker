@@ -1,12 +1,18 @@
 Setting up PG4E in Production
 =============================
 
-To test the ami scripts in a docker container so you can start over
+To do this in a real EC2 Instance - create an instance based on ubuntu 18.04.
+Use a security group which opens ports 80, 5432, and 8001.  Then and login
+and become root:
 
-    docker run -p 8080:80 -p 3306:3306 -p 5000:5432 -p 8001:8001 --name ubuntu -dit ubuntu:18.04
+    sudo bash
+
+To test the ami scripts in a docker container so you can start over:
+
+    docker run -p 8080:80 -p 5000:5432 -p 8001:8001 --name ubuntu -dit ubuntu:18.04
     docker exec -it ubuntu bash
 
-Then augment the kernel for Tsugi in the docker:
+Common commands for EC2 or docker once in as `root`:
 
     apt-get update
     apt-get install -y git
@@ -15,20 +21,26 @@ Then augment the kernel for Tsugi in the docker:
     git config user.name "Charles R. Severance"
     git config user.email "csev@umich.edu"
 
+Check out this repository and Tsugi's docker-php:
+
     cd /root
+    get clone https://github.com/csev/pg4e-docker.git
     git clone https://github.com/tsugiproject/docker-php.git
+
+Then fill up our disk the the Tsugi pre-requisites:
 
     cd docker-php
 
     bash ami/build.sh
 
-Then come back here:
+Then come back here and add more to the kernel
 
-    cd ../pg4e-production
+    cd ../pg4e-docker
+
+    bash ami/prepare.sh docker
 
     cp ami-env-dist.sh  ami-env.sh
 
-Add lines like:
 
 
 
