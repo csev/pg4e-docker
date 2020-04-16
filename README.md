@@ -1,4 +1,5 @@
 Setting up PG4E in Production
+=============================
 
 To test the ami scripts in a docker container so you can start over
 
@@ -10,6 +11,7 @@ Then augment the kernel for Tsugi in the docker:
     apt-get update
     apt-get install -y git
     apt-get install -y vim
+
     git config user.name "Charles R. Severance"
     git config user.email "csev@umich.edu"
 
