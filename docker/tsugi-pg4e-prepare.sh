@@ -12,6 +12,10 @@ echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | tee /etc/
 
 apt-get update
 
+echo ======= Install Python3.7
+add-apt-repository -y ppa:deadsnakes/ppa
+apt install -y python3.7 python3.7-venv
+
 echo ======= Install PostgreSQL 11
 apt install -y sudo
 apt install -y postgresql-11 postgresql-contrib-11
@@ -22,7 +26,6 @@ echo ======= Install Elastic 7
 
 apt-get -y install openjdk-8-jdk
 
-apt-get install -y python3-venv
 apt-get install -y nodejs
 apt-get install -y npm
 apt-get install -y apt-transport-https
@@ -35,7 +38,7 @@ git clone https://github.com/csev/charles-server.git
 cd charles-server
 
 echo ====== Making virtual environment
-python3 -m venv .venv
+python3.7 -m venv .venv
 source .venv/bin/activate
 
 # Get the latest pip
