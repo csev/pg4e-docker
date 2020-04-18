@@ -27,6 +27,10 @@ if [ -z "$CHARLES_AUTH_SECRET" ]; then
 CHARLES_AUTH_SECRET=12345; export CHARLES_AUTH_SECRET;
 fi
 
+if [-z "$CHARLES_POSTGRES_DATABASE" ]; then
+CHARLES_POSTGRES_DATABASE=charles; export CHARLES_POSTGRES_DATABASE;
+fi
+
 COMPLETE=/usr/local/bin/tsugi-pg4e-complete
 if [ -f "$COMPLETE" ]; then
     echo "Starting charles-server"
@@ -61,7 +65,7 @@ cd /var/www/html/
 git clone https://github.com/csev/phppgadmin.git
 cp /var/www/html/scripts/config.inc.php /var/www/html/phppgadmin/conf/config.inc.php
 
-cat >> /var/www/html/tsugi/config.php << EOF 
+cat >> /var/www/html/tsugi/config.php << EOF
 \$CFG->tool_folders = array("admin", "../tools", "mod");
 \$CFG->psql_root_password = "$PSQL_ROOT_PASSWORD";
 
@@ -141,4 +145,3 @@ exec bash /usr/local/bin/monitor-apache.sh
 # https://stackoverflow.com/questions/2935183/bash-infinite-sleep-infinite-blocking
 echo "Tsugi PG4E Sleeping forever..."
 while :; do sleep 2073600; done
-
