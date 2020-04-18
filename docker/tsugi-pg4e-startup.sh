@@ -68,6 +68,15 @@ cp /var/www/html/scripts/config.inc.php /var/www/html/phppgadmin/conf/config.inc
 cat >> /var/www/html/tsugi/config.php << EOF
 \$CFG->tool_folders = array("admin", "../tools", "mod");
 \$CFG->psql_root_password = "$PSQL_ROOT_PASSWORD";
+\$CFG->theme = array(
+    "primary" => "#336791", //default color for nav background, splash background, buttons, text of tool menu
+    "secondary" => "#EEEEEE", // Nav text and nav item border color, background of tool menu
+    "text" => "#111111", // Standard copy color
+    "text-light" => "#5E5E5E", // A lighter version of the standard text color for elements like "small"
+    "font-url" => "https://fonts.googleapis.com/css2?family=Open+Sans", // Optional custom font url for using Google fonts
+    "font-family" => "'Open Sans', Corbel, Avenir, 'Lucida Grande', 'Lucida Sans', sans-serif", // Font family
+    "font-size" => "14px", // This is the base font size used for body copy. Headers,etc. are scaled off this value
+);
 
 EOF
 
