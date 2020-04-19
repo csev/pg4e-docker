@@ -14,13 +14,13 @@ apt-get update
 
 echo ======= Install Python3.7
 add-apt-repository -y ppa:deadsnakes/ppa
-apt install -y python3.7 python3.7-venv
+apt-get install -y python3.7 python3-venv
 
 echo ======= Install PostgreSQL 11
-apt install -y sudo
-apt install -y postgresql-11 postgresql-contrib-11
-apt install -y postgresql-client-11
-apt install -y php7.3-pgsql
+apt-get install -y sudo
+apt-get install -y postgresql-11 postgresql-contrib-11
+apt-get install -y postgresql-client-11
+apt-get install -y php7.3-pgsql
 
 echo ======= Install Elastic 7
 
