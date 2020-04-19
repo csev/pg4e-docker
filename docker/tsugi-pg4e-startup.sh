@@ -19,9 +19,11 @@ CHARLES_ELASTICSEARCH_URI=http://localhost:9200 ; export CHARLES_ELASTICSEARCH_U
 # curl -X GET http://127.0.0.1:8001/v1/elasticsearch
 # {"errors":[{"title":"Scope Error","detail":"No token provided.","status":403}]}
 
-CHARLES_POSTGRES_USER=charles; export CHARLES_POSTGRES_USER
+if [ -z "$CHARLES_POSTGRES_USER" ]; then
+CHARLES_POSTGRES_USER=charles; export CHARLES_POSTGRES_USER;
+fi
 if [ -z "$CHARLES_POSTGRES_PASSWORD" ]; then
-CHARLES_POSTGRES_PASSWORD=password; export CHARLES_POSTGRES_PASSWORD;
+CHARLES_POSTGRES_PASSWORD=secret; export CHARLES_POSTGRES_PASSWORD;
 fi
 if [ -z "$CHARLES_AUTH_SECRET" ]; then
 CHARLES_AUTH_SECRET=12345; export CHARLES_AUTH_SECRET;

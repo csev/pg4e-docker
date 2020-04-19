@@ -12,6 +12,10 @@ export MYSQL_ROOT_PASSWORD=secret
 export MAIN_REPO=https://github.com/csev/pg4e 
 
 export PSQL_ROOT_PASSWORD=secret 
+
 export CHARLES_AUTH_SECRET=secret 
+
+export CHARLES_POSTGRES_USER=charles 
+export CHARLES_POSTGRES_DATABASE=charles
 export CHARLES_POSTGRES_PASSWORD=zippy 
 

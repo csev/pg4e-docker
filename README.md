@@ -60,6 +60,16 @@ The `pg4e-startup` script will run all the Tsugi scripts in the right order.
 
 The navigate to http://localhost:8080/ or http://12.34.56.78/ depending on your server.
 
+Also assuming `CHARLES_AUTH_SECRET=secret` :
+
+    curl --user administrator:2007_d223496d localhost:8001/v1/basicauth/elasticsearch
+    curl --user administrator:2007_d223496d localhost:8001/v1/basicauth/elasticsearch/test
+
+Also:
+
+    psql -h 127.0.0.1 -p 5432 -U charles -W charles
+    zippy
+
 Es configuration:
 
     es_host:  127.0.0.1  or test.pg4e.com
