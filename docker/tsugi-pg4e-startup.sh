@@ -37,6 +37,7 @@ COMPLETE=/usr/local/bin/tsugi-pg4e-complete
 if [ -f "$COMPLETE" ]; then
     echo "Starting charles-server"
     service --status-all
+    # https://github.com/fhd/init-script-template
     service charles-server start
 
     echo "https://certbot.eff.org/lets-encrypt/ubuntubionic-apache"

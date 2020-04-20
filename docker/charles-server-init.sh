@@ -1,4 +1,7 @@
 #!/bin/sh
+
+# From: https://github.com/fhd/init-script-template
+
 ### BEGIN INIT INFO
 # Provides:
 # Required-Start:    $remote_fs $syslog
