@@ -2,13 +2,13 @@ Setting up PG4E in Production
 =============================
 
 To do this in a real EC2 Instance - create an instance based on ubuntu 18.04.
-Use a security group which opens ports 80, 5432, and 8001.  Then and login
+Use a security group which opens ports 80, 5432, and 8001.  Then login
 and become root:
 
     sudo bash
     set -o history
 
-To test the ami scripts in a docker container so you can start over:
+To test the non-docker scripts in a docker container so you can start over:
 
     docker run -p 8080:80 -p 5000:5432 -p 8001:8001 --name ubuntu -dit ubuntu:18.04
     docker exec -it ubuntu bash

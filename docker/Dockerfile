@@ -5,6 +5,7 @@ FROM tsugi_dev:latest
 
 COPY tsugi-pg4e-prepare.sh /usr/local/bin
 COPY tsugi-pg4e-startup.sh /usr/local/bin
+COPY charles-server-start.sh /usr/local/bin/charles-server-start.sh
 
 # Install.
 RUN bash /usr/local/bin/tsugi-pg4e-prepare.sh

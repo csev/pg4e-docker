@@ -25,10 +25,6 @@ fi
 if [ -z "$CHARLES_POSTGRES_PASSWORD" ]; then
 CHARLES_POSTGRES_PASSWORD=secret; export CHARLES_POSTGRES_PASSWORD;
 fi
-if [ -z "$CHARLES_AUTH_SECRET" ]; then
-CHARLES_AUTH_SECRET=12345; export CHARLES_AUTH_SECRET;
-fi
-
 if [-z "$CHARLES_POSTGRES_DATABASE" ]; then
 CHARLES_POSTGRES_DATABASE=charles; export CHARLES_POSTGRES_DATABASE;
 fi
@@ -36,9 +32,8 @@ fi
 COMPLETE=/usr/local/bin/tsugi-pg4e-complete
 if [ -f "$COMPLETE" ]; then
     echo "Starting charles-server"
-    cd /charles-server
-    source .venv/bin/activate
-    python /charles-server/server --port 8001 &
+    service --status-all
+    service charles-server start
 
     echo "https://certbot.eff.org/lets-encrypt/ubuntubionic-apache"
     echo " "
@@ -133,9 +128,8 @@ echo $PWD
 fi
 
 echo "Starting charles-server"
-cd /charles-server
-source .venv/bin/activate
-python /charles-server/server --port 8001 &
+service --status-all
+service charles-server start
 
 echo "https://certbot.eff.org/lets-encrypt/ubuntubionic-apache"
 echo " "
