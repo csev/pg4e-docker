@@ -14,7 +14,8 @@ apt-get update
 
 echo ======= Install Python3.7
 add-apt-repository -y ppa:deadsnakes/ppa
-apt-get install -y python3.7 python3-venv
+apt-get install -y python3.6 python3.7 python3-venv python3-pip
+pip3 install virtualenv
 
 echo ======= Install PostgreSQL 11
 apt-get install -y sudo
@@ -38,7 +39,8 @@ git clone https://github.com/csev/charles-server.git
 cd charles-server
 
 echo ====== Making virtual environment
-python3.7 -m venv .venv
+# python3.7 -m venv  .venv
+virtualenv -p /usr/bin/python3.7 .venv
 source .venv/bin/activate
 
 # Get the latest pip

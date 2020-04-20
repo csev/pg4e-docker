@@ -25,9 +25,13 @@ fi
 if [ -z "$CHARLES_POSTGRES_PASSWORD" ]; then
 CHARLES_POSTGRES_PASSWORD=secret; export CHARLES_POSTGRES_PASSWORD;
 fi
-if [-z "$CHARLES_POSTGRES_DATABASE" ]; then
+if [ -z "$CHARLES_POSTGRES_DATABASE" ]; then
 CHARLES_POSTGRES_DATABASE=charles; export CHARLES_POSTGRES_DATABASE;
 fi
+
+# Make sure this has execute permission
+chmod +x /etc/init.d/charles-server
+chmod +x /usr/local/bin/charles-server-start.sh
 
 COMPLETE=/usr/local/bin/tsugi-pg4e-complete
 if [ -f "$COMPLETE" ]; then

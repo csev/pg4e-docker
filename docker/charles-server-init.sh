@@ -10,7 +10,7 @@
 ### END INIT INFO
 
 dir="/charles-server"
-cmd="/usr/local/bin/charles-server-start.sh"
+cmd="bash /usr/local/bin/charles-server-start.sh"
 user="root"
 
 name=`basename $0`

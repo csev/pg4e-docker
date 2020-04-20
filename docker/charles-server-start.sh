@@ -1,7 +1,6 @@
 #! /bin/bash
 
 source /root/pg4e-docker/ami-env.sh
-env
 
 if [ -z "$CHARLES_POSTGRES_USER" ]; then
 CHARLES_POSTGRES_USER=charles; export CHARLES_POSTGRES_USER;
@@ -13,7 +12,7 @@ if [ -z "$CHARLES_AUTH_SECRET" ]; then
 CHARLES_AUTH_SECRET=12345; export CHARLES_AUTH_SECRET;
 fi
 
-if [-z "$CHARLES_POSTGRES_DATABASE" ]; then
+if [ -z "$CHARLES_POSTGRES_DATABASE" ]; then
 CHARLES_POSTGRES_DATABASE=charles; export CHARLES_POSTGRES_DATABASE;
 fi
 
