@@ -64,6 +64,9 @@ case "$1" in
         done
         echo
 
+        echo "Stopping python /charles-server/server..."
+        ps aux | grep 'python /charles-server/server --port 8001' | grep -v grep | awk '{print "kill " $2}' | sh
+
         if is_running; then
             echo "Not stopped; may still be shutting down or shutdown may have failed"
             exit 1
