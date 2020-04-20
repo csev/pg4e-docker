@@ -1,5 +1,23 @@
-Setting up PG4E in Production
-=============================
+Testing in a Docker
+===================
+
+If you want to build this in a docker for local testing:
+
+    cd docker
+    docker build --tag tsugi_pg4e .
+
+For more detail on startup, testing, etc - see the `docker/README.md`
+
+Setting up PG4E on Ubuntu without Docker
+========================================
+
+In production we might want to use an EC2 with or without and AMI so 
+these Dockerfiles are set up to be run by scripts as well.  You can
+test these scripts in an Ubuntu 18.04 container or in an EC2 instance.
+
+
+Ubuntu on EC2
+-------------
 
 To do this in a real EC2 Instance - create an instance based on ubuntu 18.04.
 Use a security group which opens ports 80, 5432, and 8001.  Then login
@@ -8,10 +26,16 @@ and become root:
     sudo bash
     set -o history
 
+Ubuntu on Docker
+----------------
+
 To test the non-docker scripts in a docker container so you can start over:
 
     docker run -p 8080:80 -p 5000:5432 -p 8001:8001 --name ubuntu -dit ubuntu:18.04
     docker exec -it ubuntu bash
+
+Ubuntu Setup
+------------
 
 Common commands for EC2 or docker once in as `root`:
 
@@ -30,7 +54,8 @@ Then fill up our disk the the Tsugi pre-requisites:
 
     bash ami/build.sh
 
-Do *not* run the `tsugi-dev-startup.sh`
+Do *not* run the `tsugi-dev-startup.sh` - we do all the setup
+for pg4e and then run al lthe startup scripts.
 
 Then come back here and add more to the kernel
 
@@ -42,8 +67,12 @@ or something - do it now.  Or perhaps take a docker snapshot to come back to thi
 
     docker commit d6c36062e38b tsugi:snap
 
+Configuration and Startup
+-------------------------
+
 The rest is configuration and startup:
 
+    cd /root/pg4e-docker
     cp ami-env-dist.sh  ami-env.sh
 
 Edit the config if you are building a production box:
@@ -57,6 +86,9 @@ Then complete install and configure:
     bash /usr/local/bin/tsugi-pg4e-startup.sh return
 
 The `pg4e-startup` script will run all the Tsugi scripts in the right order.
+
+Testing
+-------
 
 The navigate to http://localhost:8080/ or http://12.34.56.78/ depending on your server.
 
