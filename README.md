@@ -48,19 +48,8 @@ Check out this repository and Tsugi's php-docker:
     git clone https://github.com/tsugiproject/docker-php.git
     git clone https://github.com/csev/pg4e-docker.git
 
-Then fill up our disk the the Tsugi pre-requisites:
-
-    cd docker-php
-
-    bash ami/build.sh
-
-Do *not* run the `tsugi-dev-startup.sh` - we do all the setup
-for pg4e and then run al lthe startup scripts.
-
-Then come back here and add more to the kernel
-
-    cd ../pg4e-docker
-    bash ami/prepare.sh docker
+    cd /root/pg4e-docker
+    bash ami-build.sh
 
 At this point if you are in an ECS and want to snapshot an AMI for an autoscaling group
 or something - do it now.  Or perhaps take a docker snapshot to come back to this point:
