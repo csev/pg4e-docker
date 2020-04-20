@@ -49,7 +49,7 @@ Check out this repository and Tsugi's php-docker:
     git clone https://github.com/csev/pg4e-docker.git
 
     cd /root/pg4e-docker
-    bash ami-build.sh
+    bash ami/build.sh
 
 At this point if you are in an ECS and want to snapshot an AMI for an autoscaling group
 or something - do it now.  Or perhaps take a docker snapshot to come back to this point:
