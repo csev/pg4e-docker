@@ -1,8 +1,8 @@
 
 # Copy to ami-env.sh and edit
 
-# export APACHE_SERVER_NAME=test.pg4e.com
-# export TSUGI_APPHOME=http://test.pg4e.com
+# export APACHE_SERVER_NAME=www.pg4e.com
+# export TSUGI_APPHOME=https://www.pg4e.com
 
 export APACHE_SERVER_NAME=localhost
 export TSUGI_APPHOME=http://localhost:8080 
