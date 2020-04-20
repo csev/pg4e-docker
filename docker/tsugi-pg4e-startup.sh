@@ -93,9 +93,10 @@ host    all             all             0.0.0.0/0               md5
 EOF
 
 # https://blog.bigbinary.com/2016/01/23/configure-postgresql-to-allow-remote-connection.html
-rm /tmp/x
+rm -f /tmp/x
 sed "s/#listen_addresses = 'localhost'/listen_addresses = '*'/" < /etc/postgresql/11/main/postgresql.conf > /tmp/x
 cp /tmp/x /etc/postgresql/11/main/postgresql.conf
+rm -f /tmp/x
 
 cat > /root/.vimrc << EOF
 set sw=4 ts=4 sts=4 et
