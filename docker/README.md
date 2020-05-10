@@ -19,12 +19,12 @@ This should fail from outside the container because `postgres` is blocked
 These should work inside the container with the `postgres` account:
 
     psql -h 127.0.0.1 -p 5432 -U postgres -W
-    CREATE USER x WITH PASSWORD 'y';
-    CREATE DATABASE pg4e WITH OWNER x;
+    CREATE USER pg4e_x WITH PASSWORD 'y';
+    CREATE DATABASE pg4e_x WITH OWNER pg4e_x;
 
 This should work outside the container once the account is created:
 
-    psql -h 127.0.0.1 -p 5000 -U x pg4e
+    psql -h 127.0.0.1 -p 5000 -U pg4e_x pg4e_x
 
 This is a quick test of `charles-server` and `elasticsearch:
 
