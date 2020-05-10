@@ -8,13 +8,14 @@ If you want to build this in a docker for local testing:
 
 For more detail on startup, testing, etc - see the `docker/README.md`
 
+To build `tsugi_dev` pre-requisite - see `docker-php/build.sh`
+
 Setting up PG4E on Ubuntu without Docker
 ========================================
 
 In production we might want to use an EC2 with or without and AMI so 
 these Dockerfiles are set up to be run by scripts as well.  You can
 test these scripts in an Ubuntu 18.04 container or in an EC2 instance.
-
 
 Ubuntu on EC2
 -------------

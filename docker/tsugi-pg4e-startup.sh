@@ -59,6 +59,25 @@ echo "Creating user/database for charles-server with password $CHARLES_POSTGRES_
 sudo -i -u postgres psql -c "CREATE USER charles WITH PASSWORD '$CHARLES_POSTGRES_PASSWORD'"
 sudo -i -u postgres psql -c "CREATE DATABASE charles WITH OWNER charles"
 
+# http://wiki.postgresql.org/wiki/Shared_Database_Hosting
+echo "Tighten up template1 for shared hosting 123"
+sudo -i -u postgres psql template1 -f - << EOT
+
+REVOKE CREATE ON DATABASE template1 FROM public;
+REVOKE CONNECT ON DATABASE template1 FROM public;
+
+REVOKE ALL ON pg_user FROM public;
+REVOKE ALL ON pg_roles FROM public;
+REVOKE ALL ON pg_group FROM public;
+REVOKE ALL ON pg_authid FROM public;
+REVOKE ALL ON pg_auth_members FROM public;
+
+REVOKE ALL ON pg_database FROM public;
+REVOKE ALL ON pg_tablespace FROM public;
+REVOKE ALL ON pg_settings FROM public;
+
+EOT
+
 echo "Removing phpMyAdmin"
 rm -rf /var/www/html/phpMyAdmin /var/www/html/phppgadmin
 
